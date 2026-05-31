@@ -1,0 +1,39 @@
+[2026-05-28T14:22:27.973+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-28T14:22:27.983+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: SCD2_snapshots.dbt_run_marts manual__2026-05-28T14:21:15.217538+00:00 [queued]>
+[2026-05-28T14:22:27.985+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: SCD2_snapshots.dbt_run_marts manual__2026-05-28T14:21:15.217538+00:00 [queued]>
+[2026-05-28T14:22:27.985+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2026-05-28T14:22:27.989+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_marts> on 2026-05-28 14:21:15.217538+00:00
+[2026-05-28T14:22:27.990+0000] {standard_task_runner.py:64} INFO - Started process 766 to run task
+[2026-05-28T14:22:27.992+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'SCD2_snapshots', 'dbt_run_marts', 'manual__2026-05-28T14:21:15.217538+00:00', '--job-id', '82', '--raw', '--subdir', 'DAGS_FOLDER/scd_snapshots.py', '--cfg-path', '/tmp/tmp7t8we3g1']
+[2026-05-28T14:22:27.993+0000] {standard_task_runner.py:91} INFO - Job 82: Subtask dbt_run_marts
+[2026-05-28T14:22:28.020+0000] {task_command.py:426} INFO - Running <TaskInstance: SCD2_snapshots.dbt_run_marts manual__2026-05-28T14:21:15.217538+00:00 [running]> on host a173230b67f8
+[2026-05-28T14:22:28.046+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='SCD2_snapshots' AIRFLOW_CTX_TASK_ID='dbt_run_marts' AIRFLOW_CTX_EXECUTION_DATE='2026-05-28T14:21:15.217538+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-28T14:21:15.217538+00:00'
+[2026-05-28T14:22:28.046+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-28T14:22:28.051+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-28T14:22:28.052+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/banking_dbt && dbt run --select marts --profiles-dir /home/***/.dbt']
+[2026-05-28T14:22:28.055+0000] {subprocess.py:86} INFO - Output:
+[2026-05-28T14:22:28.863+0000] {subprocess.py:93} INFO - [0m14:22:28  Running with dbt=1.11.11
+[2026-05-28T14:22:28.865+0000] {subprocess.py:93} INFO - [0m14:22:28  Encountered an error:
+[2026-05-28T14:22:28.865+0000] {subprocess.py:93} INFO - Runtime Error
+[2026-05-28T14:22:28.866+0000] {subprocess.py:93} INFO -   Could not find profile named 'banking_dbt'
+[2026-05-28T14:22:29.374+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-05-28T14:22:29.375+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-28T14:22:29.435+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-05-28T14:22:29.437+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=SCD2_snapshots, task_id=dbt_run_marts, run_id=manual__2026-05-28T14:21:15.217538+00:00, execution_date=20260528T142115, start_date=20260528T142227, end_date=20260528T142229
+[2026-05-28T14:22:29.441+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 82 for task dbt_run_marts (Bash command failed. The command returned a non-zero exit code 2.; 766)
+[2026-05-28T14:22:29.471+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-05-28T14:22:29.478+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-05-28T14:22:29.479+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

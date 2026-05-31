@@ -1,0 +1,41 @@
+[2026-05-28T14:33:18.325+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-28T14:33:18.335+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: SCD2_snapshots.dbt_run_marts manual__2026-05-28T14:33:03.329693+00:00 [queued]>
+[2026-05-28T14:33:18.338+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: SCD2_snapshots.dbt_run_marts manual__2026-05-28T14:33:03.329693+00:00 [queued]>
+[2026-05-28T14:33:18.338+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-05-28T14:33:18.343+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_marts> on 2026-05-28 14:33:03.329693+00:00
+[2026-05-28T14:33:18.344+0000] {standard_task_runner.py:64} INFO - Started process 946 to run task
+[2026-05-28T14:33:18.346+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'SCD2_snapshots', 'dbt_run_marts', 'manual__2026-05-28T14:33:03.329693+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/scd_snapshots.py', '--cfg-path', '/tmp/tmpgybfg2ow']
+[2026-05-28T14:33:18.347+0000] {standard_task_runner.py:91} INFO - Job 84: Subtask dbt_run_marts
+[2026-05-28T14:33:18.366+0000] {task_command.py:426} INFO - Running <TaskInstance: SCD2_snapshots.dbt_run_marts manual__2026-05-28T14:33:03.329693+00:00 [running]> on host a173230b67f8
+[2026-05-28T14:33:18.397+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='SCD2_snapshots' AIRFLOW_CTX_TASK_ID='dbt_run_marts' AIRFLOW_CTX_EXECUTION_DATE='2026-05-28T14:33:03.329693+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-28T14:33:03.329693+00:00'
+[2026-05-28T14:33:18.397+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-28T14:33:18.404+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-28T14:33:18.404+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/banking_dbt && dbt run --select marts --profiles-dir /home/***/.dbt']
+[2026-05-28T14:33:18.407+0000] {subprocess.py:86} INFO - Output:
+[2026-05-28T14:33:19.221+0000] {subprocess.py:93} INFO - [0m14:33:19  Running with dbt=1.11.11
+[2026-05-28T14:33:19.538+0000] {subprocess.py:93} INFO - [0m14:33:19  Registered adapter: snowflake=1.11.5
+[2026-05-28T14:33:19.661+0000] {subprocess.py:93} INFO - [0m14:33:19  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-05-28T14:33:19.661+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2026-05-28T14:33:19.665+0000] {subprocess.py:93} INFO - - models.banking_dbt.example
+[2026-05-28T14:33:19.732+0000] {subprocess.py:93} INFO - [0m14:33:19  Found 6 models, 2 snapshots, 3 sources, 536 macros
+[2026-05-28T14:33:19.734+0000] {subprocess.py:93} INFO - [0m14:33:19
+[2026-05-28T14:33:19.734+0000] {subprocess.py:93} INFO - [0m14:33:19  Concurrency: 4 threads (target='dev')
+[2026-05-28T14:33:19.734+0000] {subprocess.py:93} INFO - [0m14:33:19
+[2026-05-28T14:33:21.074+0000] {subprocess.py:93} INFO - [0m14:33:21  1 of 3 START sql table model analytics.dim_accounts ............................ [RUN]
+[2026-05-28T14:33:21.075+0000] {subprocess.py:93} INFO - [0m14:33:21  2 of 3 START sql table model analytics.dim_customers ........................... [RUN]
+[2026-05-28T14:33:21.076+0000] {subprocess.py:93} INFO - [0m14:33:21  3 of 3 START sql incremental model analytics.fact_transactions ................. [RUN]
+[2026-05-28T14:33:21.723+0000] {subprocess.py:93} INFO - [0m14:33:21  2 of 3 OK created sql table model analytics.dim_customers ...................... [[32mSUCCESS 201[0m in 0.64s]
+[2026-05-28T14:33:21.834+0000] {subprocess.py:93} INFO - [0m14:33:21  1 of 3 OK created sql table model analytics.dim_accounts ....................... [[32mSUCCESS 1300[0m in 0.76s]
+[2026-05-28T14:33:24.029+0000] {subprocess.py:93} INFO - [0m14:33:24  3 of 3 OK created sql incremental model analytics.fact_transactions ............ [[32mSUCCESS 2700[0m in 2.95s]
+[2026-05-28T14:33:24.519+0000] {subprocess.py:93} INFO - [0m14:33:24
+[2026-05-28T14:33:24.521+0000] {subprocess.py:93} INFO - [0m14:33:24  Finished running 1 incremental model, 2 table models in 0 hours 0 minutes and 4.78 seconds (4.78s).
+[2026-05-28T14:33:24.559+0000] {subprocess.py:93} INFO - [0m14:33:24
+[2026-05-28T14:33:24.560+0000] {subprocess.py:93} INFO - [0m14:33:24  [32mCompleted successfully[0m
+[2026-05-28T14:33:24.560+0000] {subprocess.py:93} INFO - [0m14:33:24
+[2026-05-28T14:33:24.561+0000] {subprocess.py:93} INFO - [0m14:33:24  Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[2026-05-28T14:33:25.198+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-28T14:33:25.199+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-28T14:33:25.266+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=SCD2_snapshots, task_id=dbt_run_marts, run_id=manual__2026-05-28T14:33:03.329693+00:00, execution_date=20260528T143303, start_date=20260528T143318, end_date=20260528T143325
+[2026-05-28T14:33:25.315+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-05-28T14:33:25.321+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-05-28T14:33:25.322+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
