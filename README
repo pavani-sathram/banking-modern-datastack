@@ -1,1 +1,10 @@
 https://github.com/Jay61616/banking-modern-datastack/tree/main
+
+Steps to execute:
+1. Intialize the docker container and verify the services like postgress, minio, airflow etc
+2. Connect to postgres using dbeaver
+3. Run faker data generator
+4. Run Kafka connect and consumer to copy cdc data from postgres to minio s3 RAW bucket
+5. Create and Run AIrflow DAG to copy data from minio to snowflake(Initial+Incremental)
+6. Create dbt sources, snapshots to created Materialized views, DIM and FACT tables
+7. Create and Run DAG to trigger DBT pipelines. 

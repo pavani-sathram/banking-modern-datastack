@@ -1,13 +1,13 @@
 banking_dbt:
   outputs:
     dev:
-      account: nn77073.uk-south.azure
+      account: <>
       database: banking
-      password: Pavani@21061991
-      role: accountadmin
+      password: <>
+      role: <>
       schema: analytics
       threads: 4
       type: snowflake
-      user: PSATHRAM
+      user: <>
       warehouse: compute_wh
   target: dev
